@@ -11,7 +11,6 @@ def analyze_text(text):
     list - 按字符频率降序排列的字符列表
     """
     # 在此处增加代码
-    # 创建字典统计字符频率
     char_freq = {}
     for char in text:
         if char in char_freq:
@@ -19,7 +18,7 @@ def analyze_text(text):
         else:
             char_freq[char] = 1
     
-    # 按频率降序排序，频率相同则按字符本身排序
+    # 按频率降序排序，频率相同按字符升序排序
     sorted_chars = sorted(char_freq.keys(), key=lambda x: (-char_freq[x], x))
     
     return sorted_chars
@@ -50,9 +49,11 @@ if __name__ == "__main__":
         # 分析文本
         sorted_chars = analyze_text(text)
         
-        # 打印结果
+        # 打印结果 - 确保格式完全符合要求
         print("\n字符频率降序排列:")
-        print(", ".join(sorted_chars))
+        # 使用精确的格式输出
+        result_str = ", ".join(sorted_chars)
+        print(result_str)
         
         # 提示用户比较不同语言
         print("\n提示: 尝试输入中英文文章片段，比较不同语言之间字符频率的差别")
