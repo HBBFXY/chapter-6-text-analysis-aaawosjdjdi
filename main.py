@@ -50,9 +50,14 @@ if __name__ == "__main__":
         # 分析文本
         sorted_chars = analyze_text(text)
         
-        # 打印结果
+        # 打印结果 - 严格按照测试要求的格式
         print("\n字符频率降序排列:")
-        print(", ".join(sorted_chars))
+        # 确保输出格式与测试期望一致
+        for i, char in enumerate(sorted_chars):
+            if i > 0:
+                print(", ", end="")
+            print(char, end="")
+        print()  # 换行
         
         # 提示用户比较不同语言
         print("\n提示: 尝试输入中英文文章片段，比较不同语言之间字符频率的差别")
