@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# 在此文件处编辑代码
 def analyze_text(text):
     """
     分析文本中字符频率并按频率降序排列
@@ -10,19 +8,15 @@ def analyze_text(text):
     返回:
     list - 按字符频率降序排列的字符列表
     """
-    # 在此处增加代码
-    # 使用字典统计每个字符的频率
-    frequency = {}
-    for char in text:
-        if char in frequency:
-            frequency[char] += 1
-        else:
-            frequency[char] = 1
+    freq = {}
+    lower_text = text.lower()  
+    for char in lower_text:
+        if char.isalpha():
+            freq[char] = freq.get(char, 0) + 1
+    sorted_items = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
+    return [char for char, count in sorted_items]
+
     
-    # 按频率降序排序，如果频率相同则按字符本身排序
-    sorted_chars = sorted(frequency.keys(), key=lambda x: (-frequency[x], x))
-    
-    return sorted_chars
 
 # 主程序，已完整
 if __name__ == "__main__":
